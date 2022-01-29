@@ -1,0 +1,57 @@
+﻿@page "/ReadJson"
+@inject HttpClient Http
+
+
+<PageTitle>Hämta JSON-data</PageTitle>
+
+<h2>Hämta JSON-data</h2>
+
+<h3>Mina kurser i webbutvecklingsprogrammet</h3>
+
+@if(courseschedule == null)
+{
+    <p>Laddar kurser...</p>
+}
+else
+{
+    <ul class="courselist">
+        @foreach (var course in courseschedule)
+        {//loopar igenom kursschemat
+            <li>
+                <strong>@course.coursecode</strong>
+                <p class="cname">@course.cname</p>
+                <p class="dateperiod">Start: @course.startdate</p>
+                <p class="dateperiod">Slut: @course.enddate</p>
+            </li>
+        }
+    </ul>
+}
+
+
+
+
+@code {
+
+    // läs in klass som array och modell för coursesschedule
+    private CourseSchedule[]? courseschedule;
+
+    //Hämtar api data till coursesschedule
+    protected override async Task OnInitializedAsync()
+    {
+        courseschedule = await Http.GetFromJsonAsync<CourseSchedule[]>("https://dt173g_portfolio_restapi.afagerberg.se/completedstudies");
+    }
+
+    //Klass med properties för en kurs
+    public class CourseSchedule
+    {
+        public string? coursecode { get; set; }
+
+        public string? cname { get; set; }
+
+        public string? startdate { get; set; }
+
+        public string? enddate { get; set; }
+
+
+    }
+}

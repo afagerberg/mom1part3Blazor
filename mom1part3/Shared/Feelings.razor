@@ -1,0 +1,20 @@
+﻿
+<div class="feelingsbox">
+    <button class="happybtn" @onclick= "Happy">Jag är glad</button>
+
+
+
+    @code {
+        string Emoji = "😗";
+
+        void Happy() => Emoji = "😀";
+
+        void Sad() => Emoji = "😔";
+
+    }
+
+
+    <button class="sadbtn" @onclick= "Sad">Jag är lite nere</button>
+
+    <p>@Emoji</p>
+</div>

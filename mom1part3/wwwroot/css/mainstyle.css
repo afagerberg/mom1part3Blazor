@@ -1,0 +1,245 @@
+﻿/* DT191G moment 1 del 3, Alice Fagerberg*/
+* { padding:0; margin:0; box-sizing:border-box;}
+
+html, body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+h2 {
+    font-size: 2em;
+    max-width: 550px;
+    padding: 0 50px 20px 0;
+    color: rgb(0, 161, 151);
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgb(221, 221, 221);
+}
+
+h3 {
+    color:rgb(27, 27, 27);
+    margin-bottom:15px;
+}
+
+header {
+    position: relative;
+    box-shadow: 0 5px 5px -4px rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+
+#logo {
+    width: fit-content;
+    padding: 10px;
+    background-color: rgb(32, 145, 152);
+}
+
+    #logo h1 {
+        font-size: 1.5em;
+        color: rgb(255, 255, 255);
+    }
+
+
+main {
+    width: 100%;
+    padding: 10px;
+}
+
+nav{
+    max-width:520px;
+    margin:0 auto;
+    padding:10px;
+}
+
+nav ul {
+    display:flex;
+    list-style:none;
+    justify-content:left;
+    flex-wrap:wrap;
+}
+nav ul li { margin-bottom:15px; margin-right:10px;}
+nav ul li a {
+     display: block;
+     padding: 8px;
+     color: white;
+     background-color: rgb(33, 157, 146);
+     border-radius:6px;
+     transition: all 0.2s;
+    }
+
+
+.content {
+    padding-top: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.content p, .content h3 {
+    color: rgb(27, 27, 27);
+}
+
+.content p {
+    font-size:1em;
+}
+
+.converter {
+    margin-top:6px;
+    margin-bottom:15px;
+}
+
+.result {margin-top:6px; margin-bottom:10px;}
+button { 
+    margin-top:10px;
+    padding:8px; 
+    border: 0;
+    border-radius:5px;
+    background-color:rgb(68, 178, 171); 
+    color:white;
+    cursor:pointer;
+}
+
+input { padding:6px; max-width:300px; width:100%;}
+ul{ list-style:none;}
+.courselist li {
+    max-width:550px;
+    margin-bottom:10px;
+    padding: 12px;
+    box-shadow: 3px 4px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 3px rgba(0, 0, 0, 0.16);
+}
+.courselist p { color:dimgrey;}
+.courselist strong { display:block; padding-bottom:5px; margin-bottom:5px; border-bottom:1px solid grey;}
+.cname{ font-weight:bold;}
+.dateperiod {
+    color: rgb(57, 57, 57);
+}
+
+
+
+
+footer {
+    margin: 20px 20px 0 20px;
+    padding: 20px;
+    background-color: white;
+    border-top: 2px solid rgb(222, 222, 222);
+    text-align: center;
+}
+
+
+.feelingsbox {
+    display: flex;
+    justify-content: center;
+}
+
+.feelingsbox button {
+    height:fit-content;
+    padding:10px;
+    margin-top:20px;
+}
+
+.happybtn { order:1;}
+.sadbtn { order:3;}
+.feelingsbox p { order:2;}
+
+
+
+.feelingsbox p {
+    font-size: 2em;
+    padding: 15px;
+    transition: all 0.3s;
+}
+
+@media screen and ( min-width: 700px ) {
+
+    .happybtn ~ p:before {
+        content: "😀";
+        font-size: 0;
+        transition: all 0.3s;
+        width: 0;
+        overflow: hidden;
+    }
+
+    .happybtn:hover ~ p:before {
+        font-size: 70%;
+        opacity: 0.5;
+        width: 10px;
+    }
+
+    .sadbtn ~ p:after {
+        content: "😔";
+        font-size: 0;
+        transition: all 0.3s;
+        width: 0;
+    }
+
+    .sadbtn:hover ~ p:after {
+        font-size: 70%;
+        opacity: 0.5;
+        width: 10px;
+    }
+}
+
+@media screen and (min-width: 770px) {
+
+    main {
+        margin-left: 50px;
+        max-width: 75%;
+    }
+
+    nav {
+     
+    width:382px;
+    margin-left:0;
+    box-shadow: 5px 0px 10px -6px rgba(0,0,0,0.2);
+    padding: 40px 30px 10px 30px;
+    min-height: 88vh;
+    background-color:rgb(191, 221, 219);
+}
+
+    nav ul {
+        position:sticky;
+        top:20px;
+        display:block;
+        list-style:none;
+    }
+    nav ul li { margin-bottom:15px; margin-right:0;}
+    nav ul li a { 
+        font-size:1.1em;
+        display:block;
+        padding:6px;
+        border-bottom:1px solid rgb(144, 187, 177);
+        color:rgb(92, 157, 152);
+        background-color:transparent;
+        border-radius:0;
+        transition: all 0.2s;
+        
+    }
+
+    nav ul li a:hover {
+        color:rgb(41, 178, 165);
+        font-weight:bold;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    .content {
+        padding: 20px 80px 0 20px;
+        padding-top: 40px;
+        max-width: 1200px;
+    }
+
+    footer {
+        margin: 0;
+        position: relative;
+        box-shadow: 0 -5px 5px -4px rgba(0,0,0,0.3);
+        z-index: 1;
+    }
+}
+
+

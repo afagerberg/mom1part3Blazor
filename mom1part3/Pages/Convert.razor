@@ -1,0 +1,85 @@
+﻿@page "/convertTasks"
+
+<PageTitle>Convert</PageTitle>
+<!-- Sida med konvertering -->
+    <h2>Konvertera</h2>
+
+    <h3>Meter till fot</h3>
+
+    <!-- input och resultat konvertera meter till fot -->
+    <div class="converter">
+        <label>
+            Skriv antal meter: <br />
+            <input type="number" @bind="calcFeet" />
+        </label><br />
+        <button @onclick="FeetCalculator">
+            Beräkna fot
+        </button>
+    </div>
+
+    <p class="result">@feetresult</p>
+
+    <h3>Kilometer till miles</h3>
+    <!-- input och resultat konvertera km/h till mph -->
+    <div class="converter">
+        <label>
+            Skriv antal kilometer: <br />
+            <input type="number" @bind="calcMiles" />
+        </label><br />
+        <button @onclick="MilesCalculator">
+            Beräkna miles per hour
+        </button>
+    </div>
+
+    <p class="result">@milesresult</p>
+
+@code {
+
+    // Variabler till meter/fot-beräkning
+    private string feetresult = "";
+    private double? calcFeet;
+    // Beräkna fot
+    private async Task FeetCalculator()
+    {
+
+        var result = calcFeet * 3.2808399;
+
+        await Task.Delay(1000);
+
+        //inputkontoll
+        if(calcFeet >= 1)
+        {
+            feetresult = $"{calcFeet} meter är {result} fot";
+            
+        } else
+        {
+            feetresult = "Du måste fylla i ett numerisk värde som kan beräknas!";
+        }
+
+        
+    }
+
+    // Variabler till kilometer/miles-beräkning
+    private string milesresult = "";
+    private double? calcMiles;
+
+    // Beräkna miles per hour
+    private async Task MilesCalculator()
+    {
+
+        var Mresult = calcMiles * 0.621371192;
+
+        await Task.Delay(1000);
+        //inputkontoll
+        if(calcMiles >= 1)
+        {
+            milesresult = $"{calcMiles} km/h är {Mresult} miles per hour";
+            
+        } else
+        {
+            milesresult = "Du måste fylla i ett numerisk värde som kan beräknas!";
+        }
+
+        
+    }
+}
